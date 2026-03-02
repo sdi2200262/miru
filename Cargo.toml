@@ -8,7 +8,7 @@ edition = "2024"
 rust-version = "1.85"
 authors = ["cobuter-man"]
 license = "MIT"
-repository = "https://github.com/cobuter-man/miru"
+repository = "https://github.com/sdi2200262/miru"
 description = "Terminal markdown renderer with inline mermaid ASCII diagrams"
 
 [workspace.dependencies]
