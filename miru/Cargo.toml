@@ -1,0 +1,30 @@
+[package]
+name = "miru"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Terminal markdown renderer with inline mermaid ASCII diagrams"
+exclude = ["CLAUDE.md"]
+
+[[bin]]
+name = "miru"
+path = "src/main.rs"
+
+[dependencies]
+miru-mermaid = { path = "../miru-mermaid" }
+
+comrak = "0.40"
+ratatui = "0.30"
+crossterm = "0.29"
+syntect = "5"
+notify = "8"
+unicode-width = { workspace = true }
+toml = "0.8"
+clap = { version = "4", features = ["derive"] }
+dirs = "6"
+anyhow = "1"
+
+[lints]
+workspace = true
