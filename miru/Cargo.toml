@@ -13,7 +13,7 @@ name = "miru"
 path = "src/main.rs"
 
 [dependencies]
-miru-mermaid = { path = "../miru-mermaid" }
+miru-mermaid = { version = "0.0.1", path = "../miru-mermaid" }
 
 comrak = "0.40"
 ratatui = "0.30"
