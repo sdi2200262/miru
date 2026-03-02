@@ -988,7 +988,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "miru"
+name = "miru-cli"
 version = "0.0.1"
 dependencies = [
  "anyhow",

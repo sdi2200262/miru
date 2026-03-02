@@ -1,4 +1,4 @@
-# miru (binary crate)
+# miru-cli (binary crate)
 
 CLI entry point and markdown rendering pipeline. Depends on `miru-mermaid` for diagram rendering.
 

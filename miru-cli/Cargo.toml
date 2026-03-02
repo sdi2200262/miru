@@ -1,11 +1,12 @@
 [package]
-name = "miru"
+name = "miru-cli"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
 repository.workspace = true
 description = "Terminal markdown renderer with inline mermaid ASCII diagrams"
+default-run = "miru"
 exclude = ["CLAUDE.md"]
 
 [[bin]]

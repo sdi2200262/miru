@@ -1,15 +1,15 @@
 # miru
 
-Terminal markdown renderer with inline mermaid ASCII diagrams. Rust workspace: `miru` (binary) + `miru-mermaid` (library).
+Terminal markdown renderer with inline mermaid ASCII diagrams. Rust workspace: `miru-cli` (binary, installs as `miru`) + `miru-mermaid` (library).
 
 ## Project Status
 
 | Component | Crate | Status | Notes |
 |-----------|-------|--------|-------|
-| CLI arg parsing | miru | Working | clap derive, `--print`/`--follow`/`--ascii` |
-| Markdown → string | miru | Partial | Headings, paragraphs, code blocks, lists, blockquotes, thematic breaks. No syntax highlighting yet. |
-| TUI viewport | miru | Stub | Prints message to stderr, exits |
-| File watcher | miru | Stub | Signature only |
+| CLI arg parsing | miru-cli | Working | clap derive, `--print`/`--follow`/`--ascii` |
+| Markdown → string | miru-cli | Partial | Headings, paragraphs, code blocks, lists, blockquotes, thematic breaks. No syntax highlighting yet. |
+| TUI viewport | miru-cli | Stub | Prints message to stderr, exits |
+| File watcher | miru-cli | Stub | Signature only |
 | Flowchart parser | miru-mermaid | Partial | `graph`/`flowchart` + direction, nodes (rectangle/diamond/rounded), edges (solid/dotted/thick), edge labels, chain syntax |
 | Sequence parser | miru-mermaid | Partial | `sequenceDiagram`, participants, messages (solid/dashed/cross) |
 | Flowchart layout | miru-mermaid | Stub | Vertical stacking placeholder, no Sugiyama |
@@ -28,7 +28,7 @@ miru/                          # workspace root
 ├── LICENSE                    # MIT
 ├── CLAUDE.md                  # this file
 │
-├── miru/                      # binary crate
+├── miru-cli/                  # binary crate (installs as `miru`)
 │   ├── Cargo.toml
 │   ├── CLAUDE.md
 │   └── src/
@@ -108,7 +108,7 @@ Body groups changes by directory with per-file descriptions. Single-file changes
 - Every error variant is classifiable — no catch-all `Other(String)`.
 - Messages: lowercase, no trailing period, include the problematic value and location when available.
 
-**Binary (`miru`):**
+**Binary (`miru-cli`):**
 - `anyhow::Result` everywhere. Convert library errors at call sites.
 - A bad mermaid block displays `[mermaid error: ...]` inline with raw source as fallback — never crashes the markdown render.
 - IO/encoding errors propagate to the user via anyhow.
