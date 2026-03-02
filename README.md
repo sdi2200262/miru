@@ -44,7 +44,7 @@ TUI mode (default, without `--print`) is not yet implemented.
 
 ## Co-development
 
-This project is co-developed by ([sdi2200262](https://github.com/sdi2200262)) and [Claude](https://claude.ai). All AI-assisted commits include `Co-Authored-By` attribution. Development sessions use the [simple-session-memory](https://github.com/anthropics/claude-code-templates/tree/main/simple-session-memory) template from [cc-context-awareness](https://github.com/rooben-me/cc-context-awareness) for session continuity.
+This project is co-developed by ([sdi2200262](https://github.com/sdi2200262)) and [Claude](https://claude.ai). All AI-assisted commits include `Co-Authored-By` attribution. Development sessions use the **simple-session-memory** template from [cc-context-awareness](https://github.com/sdi2200262/cc-context-awareness) for session continuity.
 
 ## License
 
