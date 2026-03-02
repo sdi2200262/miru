@@ -2,6 +2,15 @@
 
 Terminal markdown renderer with inline mermaid ASCII diagrams. Rust workspace: `miru-cli` (binary, installs as `miru`) + `miru-mermaid` (library).
 
+## Publishing
+
+| Crate | crates.io | Version | Notes |
+|-------|-----------|---------|-------|
+| `miru-cli` | [crates.io/crates/miru-cli](https://crates.io/crates/miru-cli) | 0.0.1 | Name reservation. Installs as `miru` binary. |
+| `miru-mermaid` | [crates.io/crates/miru-mermaid](https://crates.io/crates/miru-mermaid) | 0.0.1 | Name reservation. |
+
+`miru` on crates.io is taken (unrelated project). The project name is still **miru** everywhere (repo, binary, docs) — only the crate package name is `miru-cli`.
+
 ## Project Status
 
 | Component | Crate | Status | Notes |
