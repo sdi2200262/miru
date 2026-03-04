@@ -35,8 +35,8 @@ Canvas::to_string() → output
 | File | Status | Handles |
 |------|--------|---------|
 | `layout/mod.rs` | Working | `Position` struct (x, y, width, height) |
-| `layout/flowchart.rs` | Stub | Vertical stacking with fixed spacing. No Sugiyama, no petgraph integration. |
-| `layout/sequence.rs` | Stub | Even column spacing. No message-aware width calculation. |
+| `layout/flowchart.rs` | Partial | Direction-aware linear layout: TD/BT vertical stacking (centered), LR/RL horizontal stacking. No Sugiyama, no petgraph integration. |
+| `layout/sequence.rs` | Partial | Message-aware column spacing, `message_ys` for row placement. `SequenceLayout` includes participant positions, message y-coords, total dimensions. |
 
 ## Render Modules
 
@@ -44,15 +44,15 @@ Canvas::to_string() → output
 |------|--------|---------|
 | `render/mod.rs` | Working | Module exports |
 | `render/canvas.rs` | Working | 2D char grid: `set`, `get`, `write_str`, `hline`, `vline`, `draw_box` (ASCII + Unicode), `Display` impl with trailing-space trimming |
-| `render/flowchart.rs` | Partial | Draws node boxes with centered labels. No edge routing. |
-| `render/sequence.rs` | Partial | Draws participant boxes. No lifelines, no message arrows. |
+| `render/flowchart.rs` | Partial | Node boxes with centered labels, straight-line edge routing (vertical for TD/BT, horizontal for LR/RL), arrowheads, edge labels. No L-shaped routing for non-aligned nodes. |
+| `render/sequence.rs` | Partial | Participant boxes, vertical lifelines, message arrows (solid/dashed/cross) with labels. No self-message loops. |
 | `render/style.rs` | Working | `BoxChars` struct with `unicode()` and `ascii()` constructors |
 
 ## Priority Work
 
 1. **Flowchart layout** — Sugiyama implementation using petgraph (layer assignment, crossing minimization, coordinate assignment)
-2. **Flowchart edge routing** — orthogonal paths between nodes with arrow heads
-3. **Sequence lifelines and arrows** — vertical participant lines, horizontal message arrows with labels
+2. **Flowchart edge routing** — L-shaped/orthogonal paths for non-aligned nodes
+3. **Sequence self-messages** — loopback arrows for same-participant messages
 4. **Remaining node shapes** — stadium, subroutine, circle, asymmetric rendering in canvas
 
 ## Error Handling

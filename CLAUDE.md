@@ -21,10 +21,10 @@ Terminal markdown renderer with inline mermaid ASCII diagrams. Rust workspace: `
 | File watcher | miru-cli | Stub | Signature only |
 | Flowchart parser | miru-mermaid | Partial | `graph`/`flowchart` + direction, nodes (rectangle/diamond/rounded), edges (solid/dotted/thick), edge labels, chain syntax |
 | Sequence parser | miru-mermaid | Partial | `sequenceDiagram`, participants, messages (solid/dashed/cross) |
-| Flowchart layout | miru-mermaid | Stub | Vertical stacking placeholder, no Sugiyama |
-| Sequence layout | miru-mermaid | Stub | Column spacing placeholder |
-| Flowchart render | miru-mermaid | Partial | Node boxes drawn, no edge routing |
-| Sequence render | miru-mermaid | Partial | Participant boxes drawn, no lifelines or arrows |
+| Flowchart layout | miru-mermaid | Partial | Direction-aware (TD/BT vertical, LR/RL horizontal), centered nodes. No Sugiyama. |
+| Sequence layout | miru-mermaid | Partial | Message-aware column spacing, message row positions. No per-pair spacing. |
+| Flowchart render | miru-mermaid | Partial | Node boxes, straight-line edge routing with arrowheads and labels. No L-shaped routing. |
+| Sequence render | miru-mermaid | Partial | Participant boxes, lifelines, message arrows (solid/dashed/cross) with labels. No self-messages. |
 | Canvas | miru-mermaid | Working | 2D char grid, box drawing (ASCII + Unicode), string writing, h/v lines |
 | Style/box chars | miru-mermaid | Working | Unicode and ASCII character sets |
 
@@ -60,8 +60,8 @@ miru/                          # workspace root
         │   └── sequence.rs     # sequence diagram parser
         ├── layout/
         │   ├── mod.rs          # Position type
-        │   ├── flowchart.rs    # flowchart layout (stub)
-        │   └── sequence.rs     # sequence layout (stub)
+        │   ├── flowchart.rs    # flowchart layout (direction-aware linear)
+        │   └── sequence.rs     # sequence layout (message-aware spacing)
         └── render/
             ├── mod.rs          # module exports
             ├── canvas.rs       # 2D character grid
